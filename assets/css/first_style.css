@@ -1,0 +1,136 @@
+html {
+  --hijau: #009b4c;
+  --kuning: #fff500;
+  
+}
+
+body {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  max-width: 500px;
+
+  box-sizing: border-box;
+  font-family: "Quicksand";
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;  
+}
+
+.kotak-miring {
+  position: absolute;
+  width: 850px;
+  height: 800px;
+  left: -70px;
+  top: -350px;
+
+  box-shadow: 5px 7px 4px rgba(0, 0, 0, 0.25);
+  background: var(--hijau);
+  border-radius: 50px;
+  transform: rotate(-46deg);
+}
+
+.garis-border {
+  position: absolute;
+  width: 65px;
+  height: 5px;
+
+  /* border: 3px solid; */
+  border-radius: 5px;
+}
+
+.border-kuning {
+  /* border-color: #fff500; */
+  background-color: var(--kuning);
+  left: 20px;
+  top: 20px;
+}
+
+.border-hitam-katas1 {
+  right: 120px;
+  top: 20px;
+
+  background-color: #000000;
+}
+
+.border-hitam-katas2 {
+  right: 20px;
+  top: 20px;
+
+  background-color: #000000;
+}
+
+.border-hitam-kibaw {
+  left: 20px;
+  bottom: 20px;
+
+  background-color: #000000;
+}
+
+.border-hitam-kabaw1 {
+  right: 120px;
+  bottom: 20px;
+
+  background-color: #000000;
+}
+
+.border-hitam-kabaw2 {
+  right: 20px;
+  bottom: 20px;
+
+  background-color: #000000;
+}
+
+.logo-kemenag {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  bottom: 50px;
+  left: 50px;
+
+  transform: rotate(46deg);
+}
+
+.text {
+  position: absolute;
+  width: 557px;
+  height: 179px;
+  right: -20px;
+  top: 170px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 60px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.btn-mulai {
+  position: absolute;
+  width: 220px;
+  height: 70px;
+  right: 180px;
+  bottom: 150px;
+  transition: 0.5s;
+
+  background: #009b4c;
+  box-shadow: 5px 7px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+}
+
+.btn-mulai:hover {
+  background: #028542;
+}
+
+.btn-mulai h1 {
+  position: relative;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 25px;
+}

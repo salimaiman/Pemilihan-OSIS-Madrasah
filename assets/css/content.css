@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand");
+
+@media only screen and (max-height: 657px) {
+	.canvas {
+		width: 430px !important;
+		height: 430px !important;
+	}
+
+	.keterangan {
+		height: 430px !important;
+	}
+
+	.keterangan .dsb-total {
+		line-height: 1rem !important;
+	}
+
+	.keterangan .dsb-total:not(:first-child) {
+		margin-top: 2.3rem !important;
+	}
+}
+
+@media only screen and (max-width: 1125px) {
+	.canvas {
+		width: 400px !important;
+	}
+}
+
+.isi {
+	position: relative;
+	height: 100%;
+	width: calc(100% - 200px);
+	left: 200px;
+	background-color: #eee;
+	border-top-right-radius: 12px;
+	border-bottom-right-radius: 12px;
+	border: 2px solid #009b4c;
+	border-left: 0px;
+	padding: 2rem;
+}
+
+.title span {
+	text-decoration: underline;
+	text-decoration-color: #009b4c;
+}
+
+.canvas {
+	width: 480px;
+	height: 500px;
+	background-color: #fff;
+	padding: 2rem;
+	padding-bottom: 3rem;
+	border-radius: 12px;
+}
+
+.keterangan {
+	width: 250px;
+	height: 500px;
+}
+
+.keterangan .dsb-total {
+	width: 100%;
+	height: 18.5%;
+	padding: 1rem;
+	border-radius: 12px;
+	text-align: center;
+	box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+}
+
+.keterangan .dsb-total:not(:first-child) {
+	margin-top: 2.6rem;
+}
+
+.keterangan .dsb-total h5 {
+	color: #fff;
+}
+
+.keterangan .dsb-total p {
+	font-weight: 600;
+	color: var(--kuning);
+}

@@ -1,0 +1,130 @@
+@media only screen and (max-width: 1125px) {
+	.horizontal-scroll-wrapper {
+		max-height: 790px;
+	}
+}
+
+@media only screen and (max-height: 657px) {
+	.contain {
+		height: 410px !important;
+	}
+
+	.calon .foto {
+		height: 14rem !important;
+	}
+}
+
+::-webkit-scrollbar {
+	height: 8px;
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #ddd;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #999;
+	border-radius: 20px;
+	transition: background-color 200ms ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #7e8682;
+	cursor: default !important;
+}
+
+.contain {
+	position: relative;
+	height: 500px;
+	width: 100%;
+	/* background: #111; */
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 1rem;
+	cursor: grab;
+}
+
+.scroll {
+	overflow-y: hidden;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.calon {
+	display: inline-block;
+	width: 250px;
+	height: 100%;
+	border-radius: 12px;
+	background: var(--hijau);
+	overflow: hidden;
+}
+
+.active {
+	cursor: grabbing;
+	/* cursor: -webkit-grabbing; */
+}
+
+.calon:not(:last-child) {
+	margin-right: 2rem;
+}
+
+.calon .nama {
+	position: relative;
+	padding: 0.5rem;
+	background: var(--hijau-md);
+}
+
+.calon .foto {
+	/* background: #c4c4c4; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 19rem;
+}
+
+.calon .aksi {
+	background: #c4c4c4;
+	height: 100%;
+}
+
+.calon .aksi a i {
+	margin-top: 0.5px;
+}
+
+.calon .aksi .btn {
+	width: 100%;
+	height: 30px;
+	border-radius: 0;
+	margin-top: 10px;
+	padding: 0 2px;
+	justify-content: center;
+}
+
+.plus-calon {
+	background: #eee !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.plus-calon a {
+	background: #6f7e76;
+	text-decoration: none;
+	color: #fff;
+	width: 125px;
+	height: 125px;
+	border-radius: 50%;
+	transition: all 0.3s ease-in-out;
+	opacity: 0.4;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.plus-calon a:hover {
+	background: rgb(84, 199, 132);
+	opacity: 1;
+}
