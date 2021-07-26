@@ -12,7 +12,7 @@
                 <img src="<?= base_url(); ?>assets/img/logo-ikhlas-beramal-png.png" alt="" class="mx-auto d-block" width="40px" height="40px">
             </div>
             <span class="navbar-text text-white">
-                <?= $user['nm_lengkap']; ?>
+                <?= $admin['nm_lengkap'] . ' ' . $admin['gelar']; ?>
             </span>
             <img src="<?= base_url('assets/img/' . $admin['picture']); ?>" alt="foto-admin" width="30px" class="rounded-circle mx-3">
 

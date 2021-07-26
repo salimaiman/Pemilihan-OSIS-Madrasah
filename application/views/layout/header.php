@@ -19,6 +19,9 @@
     <!-- BOXICONS CDN -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
+    <!-- TinyMCE -->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
     <!-- My Style -->
     <!-- <link rel="stylesheet" href="/css/"> -->
 
