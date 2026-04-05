@@ -1,0 +1,59 @@
+# Migration Plan: CodeIgniter 3 to CodeIgniter 4
+
+Dokumen ini merupakan strategi *high-level* untuk memigrasikan "Aplikasi Pemilihan Ketua OSIS Madrasah" dari CodeIgniter 3 (CI3) ke CodeIgniter 4 (CI4). Panduan ini dirancang untuk dieksekusi oleh Senior Programmer atau agen AI.
+
+## User Review Required
+
+> [!WARNING]
+> Migrasi ke CI4 adalah sebuah **Major Rewrite**. CI4 menggunakan arsitektur namespace dan struktur folder yang berbeda secara fundamental. Kode tidak bisa sekadar *di-copy-paste*, melainkan harus di-refactor.
+
+> [!IMPORTANT]
+> Pastikan environment server tujuan kompatibel dengan CI4 (Rekomendasi: **PHP 8.1+** dengan ekstensi intl, mbstring, dan json aktif).
+
+## Proposed Changes
+
+### Phase 1: Inisialisasi Proyek Baru
+Jangan menimpa repositori yang sudah ada secara langsung.
+1. Buat folder/proyek baru menggunakan Composer: `composer create-project codeigniter4/appstarter pemilihan-osis-ci4`.
+2. Instal pustaka pihak ketiga yang dibutuhkan seperti di CI3: jalankan `composer require phpoffice/phpspreadsheet`.
+3. Salin file `.env.example` menjadi `.env` dan atur `CI_ENVIRONMENT = development` serta kredensial `database` (hostname, username, password, DB name: `pilketos_madrasah`).
+
+### Phase 2: Migrasi Aset dan Tampilan (Views)
+1. Pindahkan seluruh isi folder `assets/` (css, js, images, excel template) dari struktur CI3 ke folder `public/assets/` pada CI4. Akses file publik di CI4 wajib melalui direktori `public/`.
+2. Pindahkan seluruh file UI dari `application/views/` (CI3) ke `app/Views/` (CI4).
+3. **Refactor Views:** 
+   - Anda mungkin perlu mengubah URL statis `base_url('assets/...')` pastikan semua *pathing* sesuai dengan standar baru.
+   - Pindahkan tag PHP pendek (`<? ... ?>`) ke format yang direkomendasikan jika diperlukan.
+
+### Phase 3: Migrasi Lapisan Data (Models)
+Pindahkan `application/models/` ke `app/Models/`. Terapkan standar CI4 pada 4 model utama (`Admin_Model`, `Kandidat_Model`, `Pemilih_Model`, `User_Model`):
+- Tambahkan `namespace App\Models;`.
+- Ganti deklarasi dari `extends CI_Model` menjadi `extends \CodeIgniter\Model`.
+- Atur properti inti CI4. Contoh: `$table = 'data_kandidat'; $primaryKey = 'id'; $allowedFields = ['nm_ketua', 'pgl_ketua', '...'];`.
+- Ubah pemanggilan `$this->db->get()` (Query Builder lawas) menjadi fungsi bawaan `$this->findAll()`, `$this->find($id)`, atau `$this->insert($data)` yang lebih modern.
+
+### Phase 4: Migrasi Logika Aplikasi (Controllers)
+Pindahkan `application/controllers/` ke `app/Controllers/` (`Welcome`, `Auth`, `Admin`):
+- Tambahkan `namespace App\Controllers;`.
+- Tambahkan instruksi `use App\Models\NamaModel;` di baris atas untuk memanggil Model yang digunakan.
+- Ubah `class Admin extends CI_Controller` menjadi `extends BaseController`.
+- **Refactor Pemanggilan:**
+  - Pemuatan View: Ubah `$this->load->view('layout/header', $data);` menjadi sintaks render array seperti `return view('layout/header', $data) . view('...', $data);`.
+  - Pemuatan Model: Pindahkan logika *load model* dari `__construct()` ke pemanggilan spesifik atau properti kelas (contoh: `$this->adminModel = new \App\Models\Admin_Model();`).
+  - Ganti utilitas `$this->input->post()` menjadi `$this->request->getPost()`.
+  - Ganti utilitas `$this->session` menjadi `$session = session();`.
+
+### Phase 5: Routing & Filter (Security)
+- Definisikan *routing* secara eksplisit di `app/Config/Routes.php` (misalnya ` $routes->get('admin/dashboard', 'Admin::index');`).
+- Ganti *fungsi bantuan custom* pengecek sesi (`is_logged_in()`) yang ada pada CI3 dengan menggunakan arsitektur **Filters** yang disediakan oleh CI4. Buat Filter Authentication (`app/Filters/AuthGuard.php`) dan terapkan di *Routes*.
+
+## Open Questions
+- Apakah direktori repositori `Pemilihan-OSIS-Madrasah` (CodeIgniter 3 saat ini) ingin disimpan berdampingan (*side-by-side*) dengan CI4, atau CI4 akan menggantikan seluruh isi repo langsung di tahap eksekusi kelak?
+
+## Verification Plan
+
+### Automated Tests
+- Menulis unit testing jika dibutuhkan menggunakan PHPUnit bawaan CI4 untuk mengetes modul krusial seperti kalkulasi perhitungan suara dan autentikasi.
+
+### Manual Verification
+- Uji alur (*user flow*) dari Login > Dashboard Admin > List Kandidat > Validasi Import Excel.

@@ -1,0 +1,54 @@
+.isi::-webkit-scrollbar {
+	width: 8px;
+}
+
+.isi::-webkit-scrollbar-track {
+	background: #eee;
+	width: 25px;
+}
+
+.isi::-webkit-scrollbar-thumb {
+	background: #999;
+	border-radius: 20px;
+	padding: 5px;
+}
+
+.form {
+	background: #fff;
+	border-radius: 12px;
+	padding: 1rem;
+	width: 100%;
+}
+
+.btn {
+	border-radius: 20px;
+	padding: 0.5rem 1rem;
+}
+
+a.btn-batal {
+	background: #ddd;
+	color: #333;
+}
+
+a.btn-batal:hover {
+	border: 1px solid rgb(221, 64, 64);
+	color: rgb(221, 64, 64);
+	background: #ccc;
+}
+
+.form-vm {
+	width: 152%;
+}
+.field {
+	position: relative;
+	border: none;
+	border-bottom: 2px solid #878787;
+	width: 100%;
+	transition: border 0.2s ease-in-out;
+}
+
+.field:focus {
+	outline: none;
+	/* border-color: var(--hijau); */
+	border-color: #198754;
+}

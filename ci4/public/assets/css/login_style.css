@@ -1,0 +1,155 @@
+body {
+	--hijau: #009b4c;
+	--kuning: #fff500;
+
+	background-color: var(--hijau);
+	font-family: Quicksand;
+}
+
+.garis-border {
+	position: absolute;
+	width: 70px;
+	height: 0px;
+	border: 3px solid #000;
+	border-radius: 5px;
+}
+
+.border-kitas {
+	left: 20px;
+	top: 20px;
+}
+
+.border-hitam-katas1 {
+	right: 120px;
+	top: 20px;
+}
+
+.border-hitam-katas2 {
+	right: 20px;
+	top: 20px;
+}
+
+.border-hitam-kibaw {
+	left: 20px;
+	bottom: 20px;
+}
+
+.border-hitam-kabaw1 {
+	right: 120px;
+	bottom: 20px;
+}
+
+.border-hitam-kabaw2 {
+	right: 20px;
+	bottom: 20px;
+}
+
+.logo-kemenag {
+	position: absolute;
+	width: 180px;
+	height: 180px;
+	left: 300px;
+	top: 40px;
+}
+
+.text {
+	position: absolute;
+	width: 557px;
+	height: 179px;
+	left: 110px;
+	top: 200px;
+
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 60px;
+	text-align: center;
+
+	color: #ffff;
+}
+
+.login-field {
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 340px;
+	height: 489px;
+	top: 150px;
+	right: 200px;
+	font-size: 18px;
+
+	background: #fefefe;
+	box-shadow: 10px 12px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 30px;
+
+	line-height: 2;
+}
+
+.login-field h4 {
+	line-height: 1.5;
+}
+
+.login-field input {
+	font-family: Quicksand;
+}
+
+.login-field input[type="text"],
+.login-field input[type="password"] {
+	border: none;
+	border-bottom: 2px solid #878787;
+	display: inline;
+	font-weight: bolder;
+	font-size: 16px;
+	width: 90%;
+	padding: 10px 20px 10px 40px;
+	margin: 10px 0;
+	box-sizing: border-box;
+	transition: border 0.4s linear;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+}
+
+input {
+	padding-left: 17px;
+}
+
+.login-field input[type="password"] {
+	margin-bottom: 50px;
+}
+
+.login-field input[type="text"]:focus,
+.login-field input[type="password"]:focus {
+	outline: none;
+}
+
+.login-field input[type="submit"] {
+	background-color: var(--hijau);
+	border: none;
+	color: white;
+	padding: 16px 48px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: lighter;
+	border-radius: 50px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	transition: 0.5s ease;
+}
+
+.login-field input[type="submit"]:hover {
+	background-color: #007c3d;
+}
+
+.input-icon {
+	position: absolute;
+	left: 3px;
+	top: calc(
+		50% - 0.5em
+	); /* Keep icon in center of input, regardless of the input height */
+}
+
+.input-wrapper {
+	position: relative;
+}
