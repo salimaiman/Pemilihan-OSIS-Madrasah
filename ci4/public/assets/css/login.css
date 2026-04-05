@@ -1,0 +1,80 @@
+@media only screen and (max-height: 657px) {
+	.ma-3 {
+		margin-top: 2rem !important;
+		/* margin-left: 4rem; */
+	}
+
+	.mk-5 {
+		margin-left: 5rem;
+	}
+}
+
+body {
+	background: var(--hijau);
+}
+
+.garis {
+	background-color: #000;
+}
+
+img {
+	width: 130px;
+	height: auto;
+}
+
+.login-field {
+	width: 340px;
+	justify-content: center;
+	align-items: center;
+
+	background: #fefefe;
+	box-shadow: 10px 12px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 30px;
+}
+
+.login-field .field {
+	position: relative;
+	border: none;
+	border-bottom: 2px solid #878787;
+	width: 90%;
+	padding-left: 2rem;
+	transition: border 0.2s ease-in-out;
+}
+
+/* 
+.login-field .field::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    display: block;
+    height: 3px;
+    background: red;
+} */
+
+.login-field .field:focus {
+	outline: none;
+	/* border-color: var(--hijau); */
+	border-color: #198754;
+}
+
+.btn {
+	padding-left: 4rem;
+	padding-right: 4rem;
+	border-radius: 50px;
+	margin-top: 3rem;
+}
+
+.ma-3 {
+	margin-top: 5rem;
+	/* margin-left: 4rem; */
+}
+
+#submit {
+	transition: all 0.5s;
+}
+
+.login-field label::after {
+	position: absolute;
+	left: 0;
+	bottom: 0px;
+}
