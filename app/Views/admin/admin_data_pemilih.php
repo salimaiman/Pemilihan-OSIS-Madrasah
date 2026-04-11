@@ -92,7 +92,8 @@
                 <div class="row">
                     <div class="col">
                         <p class="fw-bolder fs-5">Upload File</p>
-                        <?php echo form_open_multipart('admin/import_excel'); ?>
+                        <form action="<?= base_url('admin/importexcel') ?>" method="post" enctype="multipart/form-data">
+                            <?= csrf_field() ?>
                         <input type="file" id="filePemilih" name="filePemilih" accept=".xls, .xlsx">
                     </div>
                 </div>
@@ -101,7 +102,7 @@
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Batal</button>
                 <input type="submit" class="btn btn-success px-4" value="Upload">
             </div>
-            <?= form_close(); ?>
+            </form>
         </div>
     </div>
 </div>
