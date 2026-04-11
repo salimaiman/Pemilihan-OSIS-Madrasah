@@ -25,18 +25,19 @@
         </div>
     </div>
     <div class="mt-4">
-        <?php echo form_open_multipart('admin/addkandidat'); ?>
+        <form action="<?= base_url('admin/tambahkandidat') ?>" method="post" enctype="multipart/form-data">
+            <?= csrf_field() ?>
         <div class="row mb-5">
             <div class="col">
                 <div class="form form-ketua ">
                     <h3><b>Ketua</b></h3>
                     <div class="my-4">
-                        <input class="field nm_ketua" id="nm_ketua" name="nm_ketua" type="text" placeholder="Nama Lengkap" value="<?= set_value('nm_ketua'); ?>">
-                        <?= form_error('nm_ketua', '<small class="text-danger text-start"><i>', '</i></small>'); ?>
+                        <input class="field nm_ketua" id="nm_ketua" name="nm_ketua" type="text" placeholder="Nama Lengkap" value="<?= old('nm_ketua'); ?>">
+                        <?= (isset($errors['nm_ketua'])) ? '<small class="text-danger text-start"><i>' . $errors['nm_ketua'] . '</i></small>' : ''; ?>
                     </div>
                     <div class="mb-2">
-                        <input class="field pgl_ketua" id="pgl_ketua" name="pgl_ketua" type="text" placeholder="Nama Panggilan" value="<?= set_value('pgl_ketua'); ?>">
-                        <?= form_error('pgl_ketua', '<small class="text-danger text-start"><i>', '</i></small>'); ?>
+                        <input class="field pgl_ketua" id="pgl_ketua" name="pgl_ketua" type="text" placeholder="Nama Panggilan" value="<?= old('pgl_ketua'); ?>">
+                        <?= (isset($errors['pgl_ketua'])) ? '<small class="text-danger text-start"><i>' . $errors['pgl_ketua'] . '</i></small>' : ''; ?>
                     </div>
                 </div>
             </div>
@@ -46,12 +47,12 @@
                     <h3><b>Wakil Ketua</b> <i style="color:#999">(Jika Ada)</i></h3>
                     </h3>
                     <div class="my-4">
-                        <input class="field nm_wakil" id="nm_wakil" name="nm_wakil" type="text" placeholder="Nama Lengkap" value="<?= set_value('nm_wakil'); ?>">
-                        <?= form_error('nm_wakil', '<small class="text-danger text-start"><i>', '</i></small>'); ?>
+                        <input class="field nm_wakil" id="nm_wakil" name="nm_wakil" type="text" placeholder="Nama Lengkap" value="<?= old('nm_wakil'); ?>">
+                        <?= (isset($errors['nm_wakil'])) ? '<small class="text-danger text-start"><i>' . $errors['nm_wakil'] . '</i></small>' : ''; ?>
                     </div>
                     <div class="mb-2">
-                        <input class="field pgl_wakil" id="pgl_wakil" name="pgl_wakil" type="text" placeholder="Nama Panggilan" value="<?= set_value('pgl_wakil'); ?>">
-                        <?= form_error('pgl_wakil', '<small class="text-danger text-start"><i>', '</i></small>'); ?>
+                        <input class="field pgl_wakil" id="pgl_wakil" name="pgl_wakil" type="text" placeholder="Nama Panggilan" value="<?= old('pgl_wakil'); ?>">
+                        <?= (isset($errors['pgl_wakil'])) ? '<small class="text-danger text-start"><i>' . $errors['pgl_wakil'] . '</i></small>' : ''; ?>
                     </div>
                 </div>
             </div>
@@ -61,8 +62,8 @@
                 <div class="form" style="width: 152%;">
                     <h3><b>Visi</b></h3>
                     <div class="mt-4">
-                        <textarea name="visi" id="visi" cols="30" rows="10"><?= set_value('visi'); ?></textarea>
-                        <?= form_error('visi', '<small class="text-danger text-start"><i>', '</i></small>'); ?>
+                        <textarea name="visi" id="visi" cols="30" rows="10"><?= old('visi'); ?></textarea>
+                        <?= (isset($errors['visi'])) ? '<small class="text-danger text-start"><i>' . $errors['visi'] . '</i></small>' : ''; ?>
                     </div>
                 </div>
             </div>
@@ -72,8 +73,8 @@
                 <div class="form" style="width: 152%;">
                     <h3><b>Misi</b></h3>
                     <div class="mt-4">
-                        <textarea name="misi" id="misi" cols="30" rows="10"><?= set_value('visi'); ?></textarea>
-                        <?= form_error('misi', '<small class="text-danger text-start"><i>', '</i></small>'); ?>
+                        <textarea name="misi" id="misi" cols="30" rows="10"><?= old('misi'); ?></textarea>
+                        <?= (isset($errors['misi'])) ? '<small class="text-danger text-start"><i>' . $errors['misi'] . '</i></small>' : ''; ?>
                     </div>
                 </div>
             </div>
@@ -97,7 +98,7 @@
                         </p>
                         <hr>
                         <input type="file" class="custom-file-input form-control" id="foto" name="foto">
-                        <?= form_error('foto', '<small class="text-danger text-start"><i>', '</i></small>'); ?>
+                        <?= (isset($errors['foto'])) ? '<small class="text-danger text-start"><i>' . $errors['foto'] . '</i></small>' : ''; ?>
                     </div>
                 </div>
             </div>
