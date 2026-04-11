@@ -94,6 +94,59 @@ ALTER TABLE `data_admin`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+-- ----------------------------------------
+-- Table structure for table `data_kandidat`
+-- ----------------------------------------
+
+CREATE TABLE `data_kandidat` (
+  `id` int(11) NOT NULL,
+  `nm_ketua` varchar(128) NOT NULL,
+  `pgl_ketua` varchar(128) NOT NULL,
+  `nm_wakil` varchar(128) NOT NULL,
+  `pgl_wakil` varchar(128) NOT NULL,
+  `visi` text NOT NULL,
+  `misi` text NOT NULL,
+  `foto` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------------------
+-- Table structure for table `data_pemilih`
+-- ----------------------------------------
+
+CREATE TABLE `data_pemilih` (
+  `id` int(11) NOT NULL,
+  `username` varchar(128) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `nm_lengkap` varchar(128) NOT NULL,
+  `kelas` varchar(128) NOT NULL,
+  `gender` varchar(128) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for table `data_kandidat`
+--
+ALTER TABLE `data_kandidat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `data_pemilih`
+--
+ALTER TABLE `data_pemilih`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for table `data_kandidat`
+--
+ALTER TABLE `data_kandidat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `data_pemilih`
+--
+ALTER TABLE `data_pemilih`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
