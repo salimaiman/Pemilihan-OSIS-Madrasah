@@ -23,6 +23,8 @@ $routes->group('admin', ['filter' => 'authguard'], function ($routes) {
     $routes->get('kandidat', 'Admin::kandidat');
     $routes->get('tambahkandidat', 'Admin::tambahKandidat');
     $routes->post('tambahkandidat', 'Admin::tambahKandidat');
+    $routes->get('editkandidat/(:num)', 'Admin::editKandidat/$1');
+    $routes->post('editkandidat/(:num)', 'Admin::editKandidat/$1');
     $routes->get('hapuskandidat/(:num)', 'Admin::hapusKandidat/$1');
     $routes->get('datapemilih', 'Admin::dataPemilih');
     $routes->get('download', 'Admin::download');

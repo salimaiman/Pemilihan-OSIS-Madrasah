@@ -3,14 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
+use App\Models\PemilihModel;
 
 class Auth extends BaseController
 {
     protected UserModel $userModel;
+    protected PemilihModel $pemilihModel;
 
     public function __construct()
     {
         $this->userModel = new UserModel();
+        $this->pemilihModel = new PemilihModel();
     }
 
     public function index()
@@ -48,6 +51,19 @@ class Auth extends BaseController
             return $user['role_id'] == 1
                 ? redirect()->to(base_url('admin'))
                 : redirect()->to(base_url('user'));
+        }
+
+        $pemilih = $this->pemilihModel->getPemilih($username);
+
+        // Fallback checks for plain text because excel import lacks hashing
+        if ($pemilih && (password_verify($password, $pemilih['password']) || $password === $pemilih['password'])) {
+            session()->set([
+                'id'       => $pemilih['id'],
+                'username' => $username,
+                'role_id'  => 2, // arbitrary role_id for pemilih to distinguish from admin(1)
+            ]);
+
+            return redirect()->to(base_url('user'));
         }
 
         // Wrong credentials
