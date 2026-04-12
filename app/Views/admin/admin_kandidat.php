@@ -27,7 +27,10 @@
                                 <img src="<?= base_url('assets/img/kandidat/' . $k['foto']); ?>" width="90%">
                             </div>
                             <div class="aksi text-center pt-1">
-                                <a href="#" class="btn btn-primary d-block"><i class='bx bxs-info-circle'></i> Detail</a>
+                                <a href="#" class="btn btn-warning text-white d-block mb-1"><i class='bx bxs-info-circle text-white'></i> Detail</a>
+                                <a href="<?= base_url('admin/editkandidat/' . $k['id']); ?>" class="btn btn-primary d-block mb-1">
+                                    <img src="<?= base_url('assets/icon/edit-circle-fill.svg'); ?>" width="20" height="20" style="vertical-align: text-bottom; fill: white;"> Edit
+                                </a>
                                 <a href="<?= base_url('admin/hapuskandidat/' . $k['id']); ?>" class="btn btn-danger d-block" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever="<?= $k['pgl_ketua'] ?><?= ($k['pgl_wakil'] != '') ? ' & ' . $k['pgl_wakil'] : ''; ?>" data-bs-id="<?= $k['id'] ?>"><i class='bx bxs-x-circle'></i> Hapus</a>
                             </div>
                         </div>

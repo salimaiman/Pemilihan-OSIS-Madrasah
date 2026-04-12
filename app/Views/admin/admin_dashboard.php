@@ -73,10 +73,10 @@
 <!-- COUNT UP -->
 <script src="<?= base_url('assets/js/'); ?>Countup.min.js"></script>
 <script>
-    const c1 = new CountUp('ttl-suara', 0, 90, 0, 1.5);
-    const c2 = new CountUp('ttl-pemilih', 0, 90);
-    const c3 = new CountUp('sdh-memilih', 0, 90, 0, 2.5);
-    const c4 = new CountUp('blm-memilih', 0, 90, 0, 3);
+    const c1 = new CountUp('ttl-suara', 0, <?= $total_suara; ?>);
+    const c2 = new CountUp('ttl-pemilih', 0, <?= $total_pemilih; ?>);
+    const c3 = new CountUp('sdh-memilih', 0, <?= $sudah_memilih; ?>);
+    const c4 = new CountUp('blm-memilih', 0, <?= $belum_memilih; ?>);
 
     c1.start();
     c2.start();
