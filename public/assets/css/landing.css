@@ -1,0 +1,174 @@
+/* landing.css */
+
+:root {
+    --hijau: #009B4C;
+    --hijau-tua: #007A3C;
+    --hijau-muda: #4BBD83;
+    --kuning: #FFF500;
+    --putih: #FFFFFF;
+    --hitam: #1B1B1B;
+    --abu: #f8f9fa;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--hitam);
+    background-color: var(--abu);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.text-success {
+    color: var(--hijau) !important;
+}
+
+.bg-success {
+    background-color: var(--hijau) !important;
+}
+
+.btn-success {
+    background-color: var(--hijau);
+    border-color: var(--hijau);
+}
+
+.btn-success:hover {
+    background-color: var(--hijau-tua);
+    border-color: var(--hijau-tua);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 155, 76, 0.3) !important;
+}
+
+/* Navbar */
+.absolute-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    padding-top: 15px;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    padding-top: 80px; /* Space for navbar */
+    position: relative;
+    background-color: var(--putih);
+    overflow: hidden;
+}
+
+.bg-curve-pattern {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--hijau-muda), var(--hijau));
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+    border-bottom-left-radius: 100px;
+}
+
+.z-index-2 {
+    z-index: 2;
+}
+
+.hero-content {
+    padding-right: 2rem;
+}
+
+.cta-button {
+    transition: all 0.3s ease;
+}
+
+.illustration-container {
+    padding: 20px;
+}
+
+@media (max-width: 991.98px) {
+    .student-male, .student-female {
+        height: 150px !important;
+    }
+}
+
+/* Kandidat Section */
+.kandidat-section {
+    background-color: var(--abu);
+}
+
+.kandidat-card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--putih);
+}
+
+.kandidat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+.card-bg-green {
+    background: linear-gradient(to bottom right, var(--hijau-muda), var(--hijau));
+    border-bottom-left-radius: 50% 10px;
+    border-bottom-right-radius: 50% 10px;
+}
+
+.kandidat-photo-wrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.kandidat-photo {
+    transition: transform 0.4s ease;
+}
+
+.kandidat-card:hover .kandidat-photo {
+    transform: scale(1.05);
+}
+
+.visi-misi-box {
+    border-left: 5px solid var(--hijau);
+}
+
+.misi-text ul {
+    padding-left: 1.2rem;
+}
+
+.misi-text li {
+    margin-bottom: 0.5rem;
+}
+
+/* Utilities */
+.max-w-700 {
+    max-width: 700px;
+}
+
+/* Responsive */
+@media (max-width: 767.98px) {
+    .bg-curve-pattern {
+        width: 100%;
+        height: 60%;
+        top: 40%;
+        clip-path: polygon(0% 20%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    
+    .hero-content {
+        padding-top: 30px;
+        text-align: center;
+        padding-right: 15px;
+    }
+    
+    .hero-illustration {
+        margin-top: 3rem;
+    }
+
+    .kandidat-row.flex-row-reverse {
+        flex-direction: column !important;
+    }
+}
