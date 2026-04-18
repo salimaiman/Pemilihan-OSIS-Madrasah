@@ -16,6 +16,13 @@ $routes->get('auth/logout', 'Auth::logout');
 $routes->get('auth/blocked', 'Auth::blocked');
 
 // -----------------------------------------------------------------------
+// User routes (protected by AuthGuard filter)
+// -----------------------------------------------------------------------
+$routes->group('user', ['filter' => 'authguard'], function ($routes) {
+    $routes->get('/', 'User::index');
+});
+
+// -----------------------------------------------------------------------
 // Admin routes (protected by AuthGuard filter)
 // -----------------------------------------------------------------------
 $routes->group('admin', ['filter' => 'authguard'], function ($routes) {
