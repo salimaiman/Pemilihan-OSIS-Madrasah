@@ -25,9 +25,13 @@
 
             <div class="col-md-6 hero-illustration text-center position-relative">
                 <div class="illustration-container position-relative">
-                    <img src="/assets/design/assets/hero_school_building.png" alt="School" class="img-fluid school-building" style="max-height: 400px;">
-                    <img src="/assets/design/assets/hero_student_male.png" alt="Student Boy" class="position-absolute student-male" style="height: 250px; right: -20px; bottom: 0;">
-                    <img src="/assets/design/assets/hero_student_female.png" alt="Student Girl" class="position-absolute student-female" style="height: 250px; left: -20px; bottom: 0;">
+                    <!-- Awan dekoratif -->
+                    <img src="/assets/design/assets/Vector 7.svg" alt="Cloud" class="position-absolute cloud-left">
+                    <img src="/assets/design/assets/Vector 8.svg" alt="Cloud" class="position-absolute cloud-right">
+                    <!-- Gedung sekolah -->
+                    <img src="/assets/design/assets/sekolah_vector.svg" alt="Gedung Sekolah" class="img-fluid school-building">
+                    <!-- Karakter siswa -->
+                    <img src="/assets/design/assets/orang_orasi.svg" alt="Siswa" class="position-absolute student-character">
                 </div>
             </div>
             
@@ -115,13 +119,30 @@
 </section>
 
 <!-- SECTION 4: VOTING INFO -->
-<section class="voting-section bg-light py-5 border-top border-bottom">
-    <div class="container text-center py-4">
-        <h3 class="fw-bold mb-3 text-success">Satu Suara Anda Menentukan Masa Depan</h3>
-        <p class="text-muted mb-4 max-w-700 mx-auto">Pastikan Anda telah membaca dengan saksama visi dan misi dari setiap kandidat. Pilihan Anda tidak dapat diubah setelah di-submit.</p>
-        <p class="text-secondary small">
-            <i class="bx bx-info-circle me-1"></i> Jika Anda mengalami kendala teknis, silakan hubungi panitia pemilihan.
-        </p>
+<section class="voting-section py-5">
+    <div class="container">
+        <h3 class="fw-bold mb-4 text-white text-center">Pilih Kandidat</h3>
+        <div class="row justify-content-center">
+            <?php foreach($kandidat as $index => $knd): ?>
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="voting-card text-center p-4 rounded-3 d-flex flex-column h-100">
+                    <div class="mb-3 mt-auto">
+                        <img src="/assets/img/kandidat/<?= $knd['foto'] ?? 'default.png'; ?>"
+                             class="rounded-circle border border-3 shadow-sm"
+                             style="width: 80px; height: 80px; object-fit: cover; border-color: #f1f1f1 !important;">
+                    </div>
+                    <h5 class="fw-bold text-dark mb-4">
+                        <?= esc($knd['pgl_ketua']); ?> &amp; <?= esc($knd['pgl_wakil']); ?>
+                    </h5>
+                    <button class="btn btn-pilih rounded-pill px-4 fw-bold shadow-sm mt-auto mx-auto"
+                            style="width: fit-content;"
+                            onclick="vote(<?= $knd['id']; ?>)">
+                        PILIH
+                    </button>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </section>
 

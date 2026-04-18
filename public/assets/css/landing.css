@@ -90,10 +90,33 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
 }
 
-@media (max-width: 991.98px) {
-    .student-male, .student-female {
-        height: 150px !important;
-    }
+.school-building {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+}
+
+.cloud-left {
+    top: 10%;
+    left: 5%;
+    width: 100px;
+    opacity: 0.7;
+    z-index: 3;
+}
+
+.cloud-right {
+    top: 5%;
+    right: 10%;
+    width: 120px;
+    opacity: 0.7;
+    z-index: 3;
+}
+
+.student-character {
+    z-index: 2;
+    bottom: -15px;
+    right: 20%;
+    height: 350px;
 }
 
 /* Kandidat Section */
@@ -144,6 +167,36 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5rem;
 }
 
+/* Voting Section */
+.voting-section {
+    background-color: var(--hijau);
+}
+
+.voting-card {
+    background-color: var(--putih);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.voting-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+.btn-pilih {
+    background-color: #1A73E8;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-pilih:hover {
+    background-color: #1557b0;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(26, 115, 232, 0.4) !important;
+}
+
 /* Utilities */
 .max-w-700 {
     max-width: 700px;
@@ -170,5 +223,14 @@ h1, h2, h3, h4, h5, h6 {
 
     .kandidat-row.flex-row-reverse {
         flex-direction: column !important;
+    }
+    
+    .cloud-left, .cloud-right {
+        display: none;
+    }
+    
+    .student-character {
+        height: 250px;
+        right: 10%;
     }
 }
